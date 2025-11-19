@@ -24,6 +24,7 @@
     @media (max-width:900px){.controls{flex-direction:column}.actions{margin-left:0}}
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <h1>Database Warna Kain</h1>
@@ -51,10 +52,11 @@
     <table id="dataTable">
       <thead>
         <tr>
+          <th>No</th>
           <th data-key="product">Nama Product<br><span class="small">(klik header untuk sort)</span></th>
           <th data-key="warna">Nama Warna<br><span class="small">(klik header untuk sort)</span></th>
           <th data-key="kategori">Kategori Warna<br><span class="small">(klik header untuk sort)</span></th>
-          <th data-key="harga">Harga Rol per Kg</th>
+          <th data-key="harga">Harga Rol per Kg<br><span class="small">(klik header untuk sort)</span></th>
         </tr>
       </thead>
       <tbody id="tableBody"></tbody>
@@ -64,6 +66,9 @@
   </div>
 
   <script>
+    // ============================
+    //   DATA — tempel hasil Excel
+    // ============================
     const data = [
       { product: 'BAMBOO COT 30S|170-190|42"', warna: 'ABU', kategori: 'MD', harga: 'Rp 106,500' },
 { product: 'BAMBOO COT 30S|170-190|42"', warna: 'ABU TUA', kategori: 'TA', harga: 'Rp 115,500' },
@@ -280,7 +285,6 @@
 { product: 'CVC LACOSTE 20S|240-260|36"', warna: 'HIJAU BOTOL', kategori: 'TA', harga: 'Rp 104,000' },
 { product: 'CVC LACOSTE 20S|240-260|36"', warna: 'HIJAU FUJI', kategori: 'TK', harga: 'Rp 106,000' },
 { product: 'CVC LACOSTE 20S|240-260|36"', warna: 'HIJAU MELON', kategori: 'SD', harga: 'Rp 99,000' },
-{ product: 'CVC LACOSTE 20S|240-260|36"', warna: 'HITAM', kategori: 'TK', harga: 'Rp 106,000' },
 { product: 'CVC LACOSTE 20S|240-260|36"', warna: 'HITAM TC/CVC', kategori: 'TK', harga: 'Rp 106,000' },
 { product: 'CVC LACOSTE 20S|240-260|36"', warna: 'HITAM TW', kategori: 'TK', harga: 'Rp 106,000' },
 { product: 'CVC LACOSTE 20S|240-260|36"', warna: 'HITAM TWOTONE', kategori: 'TA', harga: 'Rp 104,000' },
@@ -296,7 +300,6 @@
 { product: 'CVC LACOSTE 20S|240-260|36"', warna: 'OFF WHITE', kategori: 'PT', harga: 'Rp 91,000' },
 { product: 'CVC LACOSTE 20S|240-260|36"', warna: 'ORANGE', kategori: 'TA', harga: 'Rp 104,000' },
 { product: 'CVC LACOSTE 20S|240-260|36"', warna: 'PINK', kategori: 'MD', harga: 'Rp 95,000' },
-{ product: 'CVC LACOSTE 20S|240-260|36"', warna: 'PUTIH', kategori: 'PT', harga: 'Rp 91,000' },
 { product: 'CVC LACOSTE 20S|240-260|36"', warna: 'PUTIH TC/CVC', kategori: 'PT', harga: 'Rp 91,000' },
 { product: 'CVC LACOSTE 20S|240-260|36"', warna: 'TOSCA', kategori: 'TK', harga: 'Rp 106,000' },
 { product: 'CVC LACOSTE 20S|240-260|36"', warna: 'TURKIS SEDANG', kategori: 'TA', harga: 'Rp 104,000' },
@@ -329,7 +332,6 @@
 { product: 'CVC LACOSTE 24S|200-220|36"', warna: 'HIJAU FUJI', kategori: 'TK', harga: 'Rp 108,000' },
 { product: 'CVC LACOSTE 24S|200-220|36"', warna: 'HIJAU MELON', kategori: 'TA', harga: 'Rp 106,000' },
 { product: 'CVC LACOSTE 24S|200-220|36"', warna: 'HIJAU MINT', kategori: 'MD', harga: 'Rp 97,000' },
-{ product: 'CVC LACOSTE 24S|200-220|36"', warna: 'HITAM', kategori: 'TK', harga: 'Rp 108,000' },
 { product: 'CVC LACOSTE 24S|200-220|36"', warna: 'HITAM TC/CVC', kategori: 'TK', harga: 'Rp 108,000' },
 { product: 'CVC LACOSTE 24S|200-220|36"', warna: 'HITAM TWOTONE', kategori: 'TA', harga: 'Rp 106,000' },
 { product: 'CVC LACOSTE 24S|200-220|36"', warna: 'INDIGO', kategori: 'TA', harga: 'Rp 106,000' },
@@ -348,7 +350,6 @@
 { product: 'CVC LACOSTE 24S|200-220|36"', warna: 'ORANGE', kategori: 'TA', harga: 'Rp 106,000' },
 { product: 'CVC LACOSTE 24S|200-220|36"', warna: 'ORANGE BATA', kategori: 'TA', harga: 'Rp 106,000' },
 { product: 'CVC LACOSTE 24S|200-220|36"', warna: 'PARKIA BEAN', kategori: 'MD', harga: 'Rp 97,000' },
-{ product: 'CVC LACOSTE 24S|200-220|36"', warna: 'PUTIH', kategori: 'PT', harga: 'Rp 93,000' },
 { product: 'CVC LACOSTE 24S|200-220|36"', warna: 'PUTIH TC/CVC', kategori: 'PT', harga: 'Rp 93,000' },
 { product: 'CVC LACOSTE 24S|200-220|36"', warna: 'SAGE', kategori: 'MD', harga: 'Rp 97,000' },
 { product: 'CVC LACOSTE 24S|200-220|36"', warna: 'SKY BLUE', kategori: 'MD', harga: 'Rp 97,000' },
@@ -419,6 +420,9 @@
 { product: 'ROCKY HARD|230-250|36"', warna: 'SUPER BLACK', kategori: 'TK', harga: 'Rp 110,500' }
     ];
 
+    // ===================================
+    //   Helper DOM
+    // ===================================
     const tableBody = document.getElementById('tableBody');
     const globalSearch = document.getElementById('globalSearch');
     const productFilter = document.getElementById('productFilter');
@@ -429,67 +433,100 @@
     }
     function buildSelectOptions(sel, values){
       values.forEach(v=>{
-        const o = document.createElement('option'); o.value = v; o.textContent = v; sel.appendChild(o);
+        const o=document.createElement('option'); o.value=v; o.textContent=v; sel.appendChild(o);
       });
     }
     buildSelectOptions(productFilter, uniqueValues('product'));
     buildSelectOptions(kategoriFilter, uniqueValues('kategori'));
 
-    let sortKey = null, sortDir = 1;
+    // ===================================
+    //     RENDER TABLE
+    // ===================================
+    let sortKey = null;
+    let sortDir = 1; // 1 asc, -1 desc
+
     function render(rows){
       tableBody.innerHTML='';
-      rows.forEach(r=>{
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${escapeHtml(r.product)}</td>
-                        <td>${escapeHtml(r.warna)}</td>
-                        <td>${escapeHtml(r.kategori)}</td>
-                        <td>${escapeHtml(r.harga)}</td>`;
+
+      rows.forEach((r, index)=>{
+        const tr=document.createElement('tr');
+        tr.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${escapeHtml(r.product)}</td>
+          <td>${escapeHtml(r.warna)}</td>
+          <td>${escapeHtml(r.kategori)}</td>
+          <td>${escapeHtml(r.harga)}</td>
+        `;
         tableBody.appendChild(tr);
       });
     }
 
-    function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+    function escapeHtml(s){
+      return String(s)
+        .replace(/&/g,'&amp;')
+        .replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;');
+    }
 
     function applyFilters(){
       const q = globalSearch.value.trim().toLowerCase();
       const p = productFilter.value;
       const k = kategoriFilter.value;
+
       let rows = data.filter(r=>{
-        const matchQ = q === '' || (r.product + ' ' + r.warna + ' ' + r.kategori).toLowerCase().includes(q);
+        const matchQ = q === '' || (r.product + ' ' + r.warna + ' ' + r.kategori + ' ' + r.harga).toLowerCase().includes(q);
         const matchP = p ? r.product === p : true;
         const matchK = k ? r.kategori === k : true;
         return matchQ && matchP && matchK;
       });
+
       if(sortKey){
         rows.sort((a,b)=>{
           const A = String(a[sortKey]).toLowerCase();
           const B = String(b[sortKey]).toLowerCase();
-          if(A<B) return -1*sortDir; if(A>B) return 1*sortDir; return 0;
+          if(A<B) return -1*sortDir;
+          if(A>B) return 1*sortDir;
+          return 0;
         });
       }
+
       render(rows);
     }
 
     applyFilters();
 
+    // ===================================
+    //     EVENTS
+    // ===================================
     globalSearch.addEventListener('input', debounce(applyFilters,150));
     productFilter.addEventListener('change', applyFilters);
     kategoriFilter.addEventListener('change', applyFilters);
+
     document.getElementById('clearBtn').addEventListener('click', ()=>{
-      globalSearch.value=''; productFilter.value=''; kategoriFilter.value=''; sortKey=null; sortDir=1; applyFilters();
+      globalSearch.value='';
+      productFilter.value='';
+      kategoriFilter.value='';
+      sortKey=null;
+      sortDir=1;
+      applyFilters();
     });
 
-    document.querySelectorAll('thead th').forEach(th=>{
+    // Click header sort
+    document.querySelectorAll('thead th[data-key]').forEach(th=>{
       th.style.cursor='pointer';
       th.addEventListener('click', ()=>{
         const key = th.dataset.key;
-        if(sortKey===key) sortDir = -sortDir; else { sortKey=key; sortDir=1 }
+        if(sortKey===key) sortDir = -sortDir;
+        else { sortKey=key; sortDir=1 }
         applyFilters();
       });
     });
 
+    // ===================================
+    //     EXPORT / COPY CSV
+    // ===================================
     function toCSV(rows){
-      const hdr = ['Nama Product','Nama Warna','Kategori Warna','Harga Rol per Kg'];
+      const hdr = ['Product','Warna','Kategori','Harga'];
       const lines = [hdr.join(',')];
       rows.forEach(r=>{
         lines.push(csvSafe(r.product)+','+csvSafe(r.warna)+','+csvSafe(r.kategori)+','+csvSafe(r.harga));
@@ -504,24 +541,40 @@
 
     document.getElementById('exportBtn').addEventListener('click', ()=>{
       const visible = Array.from(tableBody.querySelectorAll('tr')).map(tr=>{
-        const tds = tr.querySelectorAll('td');
-        return {product:tds[0].textContent, warna:tds[1].textContent, kategori:tds[2].textContent, harga:tds[3].textContent};
+        const t=tr.querySelectorAll('td');
+        return {
+          product: t[1].textContent,
+          warna: t[2].textContent,
+          kategori: t[3].textContent,
+          harga: t[4].textContent
+        };
       });
       const csv = toCSV(visible);
       const blob = new Blob([csv],{type:'text/csv'});
       const url=URL.createObjectURL(blob);
-      const a=document.createElement('a'); a.href=url; a.download='database_warna.csv'; a.click(); URL.revokeObjectURL(url);
+      const a=document.createElement('a');
+      a.href=url;
+      a.download='database_warna.csv';
+      a.click();
+      URL.revokeObjectURL(url);
     });
 
     document.getElementById('copyBtn').addEventListener('click', async ()=>{
       const visible = Array.from(tableBody.querySelectorAll('tr')).map(tr=>{
-        const tds = tr.querySelectorAll('td');
-        return {product:tds[0].textContent, warna:tds[1].textContent, kategori:tds[2].textContent, harga:tds[3].textContent};
+        const t=tr.querySelectorAll('td');
+        return {
+          product: t[1].textContent,
+          warna: t[2].textContent,
+          kategori: t[3].textContent,
+          harga: t[4].textContent
+        };
       });
       const csv = toCSV(visible);
-      try{ await navigator.clipboard.writeText(csv); alert('CSV disalin ke clipboard'); }catch(e){ alert('Gagal salin: '+e); }
+      await navigator.clipboard.writeText(csv);
+      alert('CSV disalin ke clipboard');
     });
 
+    // small debounce helper
     function debounce(fn,ms){let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a),ms); }}
   </script>
 </body>
